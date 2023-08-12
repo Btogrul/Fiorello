@@ -1,0 +1,90 @@
+%f-size {
+    width: 100%;
+    height: 100%;
+}
+
+
+%primary-font-size{
+    font-size: $primarySize;
+    font-weight: 500;
+}
+
+%default-font-size{
+    @extend %primary-font-size;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+
+%selection{
+    background-color: $shopnumberBgColor;
+    color: $whiteColor;
+}
+
+
+
+%circle-img-large{
+    width: 222px;
+    height: 222px;
+    overflow: hidden;
+    img{
+        @include img-size($obj:cover);
+        clip-path: circle(50% at 50% 50%);
+    }
+}
+
+
+%circle-img-medium{
+    width: 154px;
+    height: 154px;
+    overflow: hidden;
+    img{
+        @include img-size($obj:cover);
+        clip-path: circle(50% at 50% 50%);
+    }
+}
+
+%circle-img-small{
+    width: 87px;
+    height: 87px;
+    overflow: hidden;
+    img{
+        @include img-size($obj:cover);
+        clip-path: circle(50% at 50% 50%);
+    }
+}
+
+
+%sign-img-default {
+    width: 197px;
+    height: 56px;
+    img {
+        @include img-size($obj: cover);
+    }
+}
+
+
+
+
+
+
+
+%inputs{
+    padding: 22px 19px;
+    border: 1px solid #E8E8E8;
+    background: #FFF;
+    line-height: 20px;
+    &::placeholder{
+        color: $inputPlcHolder;
+        font-size: $primarySize;
+        text-transform: capitalize;
+    }
+}
+
+%input_submit{
+    color: $whiteColor;
+    background-color: $shopnumberBgColor;
+    border: none;
+    font-size: $primarySize;
+    text-transform: uppercase;
+}

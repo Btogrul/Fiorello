@@ -1,0 +1,402 @@
+header{
+    background-color: $whiteColor;
+    z-index: 100;
+    
+    .header-inner{
+        @include flex-all($f-j:space-between, $f-w:wrap, $f-a:center);
+        position: relative;
+        padding: 0 60px;   
+        .header-logo{
+            padding: 46px 0;
+            user-select: none;
+            .header-logo-inner{
+                width: 212px;
+                height: 25px;
+                a{
+                    img{
+                        @include img-size($obj:cover)
+                    }
+                }
+            }
+        }
+        // header logo end ==================================
+        .header-right-side{
+            @include flex-all($f-a:center);
+            nav{
+                ul{
+                    @include flex-all;
+                    margin: 0 auto;
+                    
+                    li{
+                        padding: 46px 29px;
+                        a{  
+                            display: inline-block;
+                            // color: $primaryColor;
+                            // text-transform: uppercase;
+                            // line-height: 22px;
+                            // letter-spacing: 1.2px;
+                            @extend %primary-font-size;
+                            @include fonts($color:$primaryColor,$t-t:uppercase,$l-heit:$lh_22, $l-spacing:$ls_normal);
+
+                                                      
+                        }
+                        .list-titles{
+                            position: relative;
+                            &::before{
+                                @include before-underline($w:0);
+                            }
+                            &:hover{
+                                &::before{
+                                    @include before-underline($w:100%);
+                                }
+                            }
+                        }
+                    }
+                    // ================================
+                    .dropdown{
+                        position: relative;
+                        z-index: 999;
+                        &:first-of-type {
+                            >a{
+                                &::before{
+                                    @include before-underline($w:100%);
+                                }
+                            }
+                            
+                        }
+                        .dropdown-inner{
+                            background-color: $whiteColor;
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            height: 0;
+                            overflow: hidden;
+                            visibility: hidden;
+                            box-shadow: rgba(0, 0, 0, 0.03) 0px 5px 5px 0px;
+                            transition: all .5s ease-out;
+                            @include flex-all($f-j:space-between);
+                            
+                            // ============================
+                            .dropdown-content{
+                                @include flex-all($f-d:column,$f-w:wrap);
+                                padding: 19px 0;
+                                overflow: hidden;
+                                li{
+                                    position: relative;
+                                    padding: 8px 26px;
+                                    min-width: 210px;
+                                    word-break: break-all;
+                                    text-overflow: hidden;
+                                    a{
+                                        
+                                        text-transform: capitalize;
+                                        color: $drpDwnListColor;
+                                        @extend %default-font-size;
+                                        line-height: 19px;
+                                        font-size: calc($primarySize + 1px);
+                                        display: block;
+                                        span{
+                                            position: relative;
+                                            &::before{
+                                                @include before-underline($w:0);
+                                            }
+                                        }
+                                        &:hover{
+                                            span{
+                                                position: relative;
+                                                
+                                                &::before{
+                                                    @include before-underline($w:100%);
+                                                }
+                                            }
+                                        }
+                                            
+                                        i{
+                                            color: $drpDwnListColor;
+                                            position: absolute;
+                                            display: inline-block;
+                                            right: 8%;
+                                            top: 37%;
+                                            font-size: 8px;
+                                        }
+                                        
+                                        
+                                    }
+                                    #m-home{
+                                        span{
+                                            position: relative;
+                                            &::before{
+                                                @include before-underline($w:100%);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                        // ====================
+                        &:hover{
+                            .dropdown-inner{
+                                visibility: visible;
+                                height: auto;
+                                top: 100%;
+                            }
+                        }
+                    }
+                    :nth-child(3){
+                        position: static;
+                        .dropdown-inner{
+                            left: 0;
+                            padding: 0 26px;
+                            .dropdown-content{
+                                padding: 40px 52px;
+                                h4{
+                                    font-size: 22px;
+                                    line-height: 24.2px;
+                                    padding-bottom: 24px;
+                                }
+                                li{
+                                    padding: 8px 0;
+                                }
+                            }
+                        }
+                    }
+                    // :last-child{
+                    //     .dropdown-inner{
+                    //         .dropdown-content{
+                    //             li{
+                    //                 text-align: end;
+                    //                 a{
+                    //                     i{
+                    //                         text-align: start;
+                    //                     }
+                    //                 }
+                    //             }
+                    //         }
+                    //     }
+                    // }
+                    // ========= dropdowns end shukur allaha ===========
+                }
+                .close_button{
+                    display: none;
+                    position: absolute;
+                    top: 5%;
+                    right: 20%;
+                    
+                }
+            }
+
+            .icons{
+                position: relative;
+                padding: 46px 0;
+                .search-button{
+                    margin: 0 14px;
+                    position: relative;
+                    i{
+                        color: $primaryColor;
+                        transform: rotate(90deg);
+                        font-size: $secondarySize;
+                        transition: all .3s ease-out;
+                        
+                    }
+                    &:hover{
+                        i{
+                            color: $shopnumberBgColor;
+                        }
+                    }
+                }
+                a{
+                    color: $primaryColor;
+                    .shop-bag{
+                        position: relative;
+                        padding: 0 15px;
+                        i{
+                            font-size: 21px;
+                        }
+                        .shop-number{
+                            position: absolute;
+                            top: -2px;
+                            right: 13px;
+                            font-size: 8px;
+                            display: inline-block;
+                            width: 13px;
+                            height: 13px;
+                            border-radius: 50%;
+                            color: $whiteColor;
+                            background-color: $shopnumberBgColor;
+                            text-align: center;
+                            line-height: 14px;
+                            
+                        }
+                    }
+                    span{
+                        &:not(:first-child){
+                            // font-size: 12px;
+                            // font-weight: 500;
+                            // letter-spacing: .1em;
+                            // line-height: 27px;
+                            @include fonts($f-size:$primarySize,$f-weight:$fw_500,$l-spacing:.1em,$l-heit:$lh_27);
+                        }
+                    }
+                }
+                form{
+                    position: absolute;
+                    left: -100%;
+                    bottom: 0;
+                    z-index: -99;
+                    transition: all .3s ease-out;
+                    padding: 6px 7px;
+                    @include flex-all;
+                    input[type="text"] {
+                        border: none;
+                        outline: none;
+                        // font-size: 12px;
+                        // line-height: 42px;
+                        width: 90%;
+                        @include fonts ($f-size:$primarySize,$l-heit: $lh_42,);
+                        padding: 0 10px 0 20px;
+                        transition: all .2s ease-out;
+                        &::placeholder{
+                            color: $secondaryColor;
+                        }
+                    }
+                    button{
+                        color: $secondaryColor;
+                        background-color: $whiteColor;
+                        padding-right: 12px;
+                        height: 44px;
+                        width: 44px;
+                        
+                    }
+                    &.activeForm{
+                        bottom: -35%;
+                        z-index: 99;
+                    }
+                }
+            }
+
+        }
+// ===================== burger btn 
+        .burger-btn{
+            display: none;
+            padding: 0 20px;
+            .burger-btn-inner{
+                @include flex-all($f-d:column) ;
+                .line{
+                    display: block;
+                    height: 2px;
+                    width: 25px;
+                    background-color: $secondaryColor;
+                    margin-top: 6px;
+                    transition: all .3s ease-out;
+                }
+                &:hover{
+                    .line{
+                        background-color: $shopnumberBgColor;
+                    }
+                }
+            }
+        }
+        // burger end==================
+
+// ========================================
+
+
+        
+        // mobile version====================
+
+        
+        @media (max-width:1241px){
+            .burger-btn{
+                display: block;
+            }
+            .header-right-side{
+                nav{
+                    position: fixed;
+                    z-index: 9999;
+                    background-color: $whiteColor;
+                    padding: 56px 75px;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    box-shadow: rgba(255, 51, 102, 0.07) 0px 1px 23.28px 0.72px; 
+                    transition: .3s ease-in-out;
+                    transform: translateX(100%);
+                    width: 0;
+                    overflow: hidden;
+                    ul{
+                        @include flex-all($f-d:column,);
+                        padding: 20px 0;
+                        li{
+                            padding: 11px 0;
+                            .dropdown-inner{
+                                display: none;
+                            }
+                        }
+                        .dropdown{
+                            &:hover{
+                                .dropdown-inner{
+                                    visibility: hidden;
+                                }
+                            }
+                        }
+                    }
+                    .close_button{
+                        display: block;
+                    }
+                    &.active{
+                        transform: translateX(0);
+                        width: 40%;
+                    }
+                }
+                .icons{
+                    display: none;
+                }
+            }
+        }
+        @media (max-width:768px){
+            .header-right-side{
+                nav{
+                    &.active{
+                        transform: translateX(0);
+                        width: 60%;
+                    }
+                }
+            }
+        }
+
+        @media (max-width:600px){
+            padding: 0 5%;
+            .header-right-side{
+                nav{
+                    &.active{
+                        transform: translateX(0);
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+    // header inner end ==========================
+    &.fixed{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        animation: head-anime 2s linear;
+        .header-right-side{
+            .icons{
+                display: none;
+            }
+        }
+
+
+    }
+
+    // fixed class while scroll
+}
+
+@keyframes head-anime{
+    from {top:-50%}
+    to {top: 0}
+}

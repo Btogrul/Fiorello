@@ -1,0 +1,87 @@
+#contact-form{
+     margin: 120px 0;
+    .contact-information{
+            padding: 50px 60px;
+            text-align: center;
+            @include flex-all ($f-a:center,$f-d:column);
+            background-color: $valentinebgColorUp1;
+            .contact-img{
+                margin-bottom: 16px;
+                // width: 154px;
+                // height: 154px;
+                // img{
+                //     @include img-size($obj:cover);
+                //     clip-path: circle(50% at 50% 50%);
+                // }
+                @extend %circle-img-medium;
+            }
+            h2{
+                // color: $stockborderColor;
+                // font-size: 38px;
+                // font-weight: 400;
+                // line-height: 55px;
+                @include fonts ($color: $stockborderColor, $f-size:$h2Size,$f-weight: $fw_400,$l-heit:$h2_lineheight);
+                span{
+                    color:$shopnumberBgColor;
+                }
+            }
+            p{
+                // color: $secondaryColor;
+                // font-size: 17px;
+                // font-weight: 400;
+                // line-height: 27px;
+                @include fonts ($color: $secondaryColor, $f-size:$secondarySize,$f-weight: $fw_400,$l-heit:$lh_27);
+                margin: 28px 0 42px;
+            }
+            .contact-sign{
+                // width: 197px;
+                // height: 56px;
+                // img{
+                //     @include img-size($obj:cover);
+                // }
+                @extend %sign-img-default;
+            }
+    }
+    // ========================
+    .contact-form{
+        padding-left: 35px;
+        margin-left: 15px;
+        @media (max-width: 992px){
+            margin: 40px 0 0 ;
+        }
+        // @include flex-all($f-d:column)
+        .form-title{
+            margin-bottom: 32px;
+            h2{
+                @include fonts ($color: $stockborderColor, $f-size:$h2Size,$f-weight: $fw_400,$l-heit:$h2_lineheight);
+            }
+            p{
+                @include fonts ($color: $secondaryColor, $f-size:$fsize_15,$f-weight: $fw_400,$l-heit:$lh_24);
+                margin-top: 19px;
+            }
+        }
+        .form-inner{
+            
+            @include flex-all( $f-d:column);
+            input:not([type="submit"]), 
+            textarea
+            {
+                @include inputs_types;
+                margin-bottom: 15px;
+            }
+            input[type="submit"]{
+                @include input_submit($w:33.333%);
+                // padding: 0 44px;
+                margin-top: 20px;
+                line-height: $lh_60;
+                @media  (max-width: 768px ) {
+                    width: 50%;
+                }
+                @media  (max-width: 992px ) {
+                    width: 40%;
+                }
+            }
+        }
+    }
+
+}

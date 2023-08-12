@@ -1,0 +1,719 @@
+#flower-cards{
+    margin-top: 57px;
+    header{
+        
+        padding: 15px 0;
+        .flower-cards-header-inner{
+            @include flex-all(  $f-j:space-between);
+            margin: 0 auto;
+            .flower-cards-navigation{
+                width: 90%;
+                ul{
+                    @include flex-all($f-a: center, $f-w: wrap);
+                    li{
+                        padding: 0 16px;
+                        a{
+                            // color: $primaryColor;
+                            // text-transform: uppercase;
+                            // font-size: $primarySize;
+                            // font-weight: 500;
+                            // line-height: 24px;
+                            // letter-spacing: 1.2px;
+                            transition: .3s ease-out;
+                            @include fonts ($color: $primaryColor,$f-size:$primarySize,$t-t: uppercase, $f-weight: $fw_500, $l-heit: $lh_24, $l-spacing: $ls_normal,);
+                            &:hover{
+                                color: $shopnumberBgColor;
+                            }
+                            &.active{
+                                color: $shopnumberBgColor;
+                            }
+                        }
+                    }
+                }
+            }
+            // flower cards navigation end ======
+            .filter{
+                width: 10%;
+                position: relative;
+                @media (max-width:600px){
+                    width: 30%;
+                    .filter-list{
+                        @include flex-all($f-d: column);
+                        .filter-list-inner{
+                            margin-right: 40px;
+                        }
+                    }
+                    
+                }
+                h6{
+                    font-family: 'Montserrat', sans-serif;
+                    // font-size: $primarySize;
+                    // font-weight: 500;
+                    // line-height: 24px;
+                    // letter-spacing: 1.2px;
+                    // text-transform: uppercase;
+                    text-overflow: clip ;
+                    @include fonts ($color: $primaryColor,$f-size:$primarySize,$t-t: uppercase, $f-weight: $fw_500, $l-heit: $lh_24, $l-spacing: $ls_normal,);
+                    @include flex-all($f-a:center);
+                    i{
+                        font-size: $fsize_18;
+                        padding: 0 0 10px 10px;
+                    }
+                    .filter-list{
+                        display: none;
+                        position: absolute;
+                        right: 30%;
+                        top: 40%;
+                        min-width: 100%;
+                        padding: 50px 10px;
+                        background-color: $whiteColor;
+                        margin: auto;
+                        z-index: 1;
+                        @media (max-width: 600px){
+                            top: 0;
+                            right: 30%;
+                            padding: 0;
+                        }
+                        // @include flex-all($f-j:space-between);
+                        .filter-list-inner{
+                            padding: 0 15px;
+                            h5{
+                                padding: 20px 0;
+                                margin: 0 20px;
+                                line-height: $lh_30;
+                                color: $primaryColor;
+                                text-transform: capitalize;
+                                
+                            }
+                            li{
+                                width: 100%;
+                                margin: 0 20px;
+                                a{
+                                    padding: 4px 0 9px;
+                                    text-transform: capitalize;
+                                    font-size: 13px;
+                                    line-height: $lh_24;
+                                    color: $drpDwnListColor;
+                                    transition: .3s ease-out;
+                                    &:hover{
+                                        color: $primaryColor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:hover{
+                        .filter-list{
+                            @include flex-all($f-j:space-between);
+                        }
+                    }
+                }
+    
+            }
+            // =====================
+            .cards-categories{
+                display: none;
+                width: 80%;
+                padding: 0 40px;
+               ul{
+                margin-top: 10px;
+                padding: 0;
+                li{
+                    a{
+                        transition: .3s ease-out;
+                        font-family: 'Montserrat', sans-serif;
+                        text-align: left;
+                        padding: 0 25px 0 0;
+                        // font-size: $primarySize;
+                        // line-height: 24px;
+                        // font-weight: 500;
+                        // letter-spacing: 1.2px;
+                        // color: $secondaryColor;
+                        // text-transform: uppercase;
+                        @include fonts ($color: $secondaryColor,$f-size:$primarySize,$t-t: uppercase, $f-weight: $fw_500, $l-heit: $lh_24, $l-spacing: $ls_normal,);
+                        &.active{
+                            color: $shopnumberBgColor
+                        }
+                    }
+                    &:hover{
+                        a{
+                            color: $shopnumberBgColor;
+                        }
+                    }
+                }
+               }
+                
+                
+                >summary {
+                    
+                    list-style-type: none;
+                    
+                    h6{
+                        font-family: 'Montserrat', sans-serif;
+                        // font-size: $primarySize;
+                        // font-weight: 500;
+                        // line-height: 24px;
+                        // letter-spacing: 1.2px;
+                        // text-transform: uppercase;
+                        @include fonts ($color: $primaryColor,$f-size:$primarySize,$t-t: uppercase, $f-weight: $fw_500, $l-heit: $lh_24, $l-spacing: $ls_normal,);
+                        text-overflow: clip ;
+                        @include flex-all($f-a:center);
+                        i{
+                            font-size: $fsize_18;
+                            padding: 0 0 10px 10px;
+                        }
+                    }
+                }
+                &[open] summary ~ *{
+                    animation: opening 1s ease-out;
+                }
+                @keyframes opening {
+                    0%    {opacity: 0; margin-top: -10px}
+                    100%  {opacity: 1; margin-top: 0px}
+                  }
+                // &[open]{
+                //     h6{
+                //         i{
+                //             transform: rotate(-90deg) translate(-5px , 0);
+                            
+                //         }
+                //     }
+                // }
+                
+                // &[open] > summary {
+                //     list-style-type: '🔽';
+                // }
+            }
+            @media (max-width: 900px) {
+                .flower-cards-navigation{
+                    display: none;
+                }
+                .cards-categories{
+                @include flex-all ( $f-a: center);
+                padding: 0 20px;
+                }
+            }
+        }
+    }
+    // header endd ========
+    .cards{
+        margin-top: 27px;
+        @include flex-all($f-j:space-between, $f-w:wrap);
+        padding: 0 20px;
+        .card{
+            width: 25%;
+            border: none;
+            padding: 0 16px;
+            margin-top: 40px;
+            overflow: hidden;
+            .card-img{
+                position: relative;
+                height: 380px;
+                overflow: hidden;
+                img{
+                    @include img-size($obj:cover);
+                    transition: all .4s ease-out;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+                .stock-sold-info{
+                    @include stock-info($font-color:$whiteColor, $bg-color: $stockborderColor, $brd-corner: $stockborderColor );
+                }
+                .stock-sale-info{
+                    @include stock-info($font-color:$stockborderColor, $bg-color: $whiteColor, $brd-corner: $shopnumberBgColor);
+                }
+            }
+            .card-title{
+                text-align: center;
+                margin: 23px 0 0;
+                h6{
+                    font-family: 'Montserrat', sans-serif;
+                    // color: $primaryColor;
+                    // font-size: $primarySize;
+                    // font-weight: 500;
+                    // line-height: 12px;
+                    // letter-spacing: 1.2px;
+                    // text-transform: uppercase;
+                    @include fonts ($color: $primaryColor,$f-size:$primarySize,$t-t: uppercase, $f-weight: $fw_500, $l-heit: $lh_12, $l-spacing: $ls_normal,);
+                    margin: 0 0 5px;
+                }
+                .card-price{
+                    position: relative;
+                    overflow: hidden;
+                    width: 33.333%;
+                    margin: 0 auto;
+                    padding: 20px;
+                    span{
+
+                        // color: $cardPriceColor;
+                        // font-size: 12px;
+                        // font-weight: 400;
+                        // line-height: 12px;
+                        @include fonts ($color: $cardPriceColor,$f-size:$primarySize, $f-weight: $fw_400, $l-heit: $lh_12,);
+                        overflow: hidden;
+                        transition: all .3s ease-out;
+                        display: inline-block;
+                    }
+                    .price-animation{
+                        position: absolute;
+                        transform: translateX(-100%);
+                        top: 40%;
+                        left: 0;
+                        &:hover{
+                            color: $shopnumberBgColor;
+                            transition: .3s ease-out;
+                        }
+                       
+                        
+                    }
+
+                }
+                &:hover{
+                    .card-price{
+                        .price{
+                            transform: translateX(100%);
+                            visibility: hidden;
+                            transform: scale(.1);
+                        }
+                        .price-animation{
+                            transform: translateX(20%);
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .cards{
+            .card{
+                width: 33.333%;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .cards{
+            .card{
+                width: 50%;
+                
+            }
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .cards{
+            .card{
+                width: 100%;
+                .card-img{
+                    height: auto;
+                }
+                
+            }
+        }
+    }
+}
+
+
+//  flower cards end ==========================
+
+
+#valentine-surprise{
+    padding: 120px 0;
+    margin-top: 115px;
+    background-color: $valentinebgColor;
+    .valentine-content{
+        @include flex-all($f-d:row);
+        .valentine-cover{
+            overflow: hidden;
+            width: 50%;
+            .valentine-cover-inner{
+                position: relative;
+                max-width: 650px;
+                height: 420px;
+                padding: 0 10px;
+                cursor: pointer;
+                img{
+                    @include img-size($obj:cover);
+                    transition: all .3s ease-out;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+                .play-icon{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    width: 103px;
+                    height: 103px;
+                    border-radius: 50%;
+                    background-color: $whiteColor;
+                    @include flex-all($f-j:center,$f-a:center);
+                    i{
+                        font-size: $fsize_30;
+                        color: $shopnumberBgColor;
+                        
+                    }
+                }
+                .modal {
+                position: fixed;
+                z-index: 999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                display: none; 
+                padding-top: 100px; 
+                background-color: rgba(0,0,0,0.4); 
+                .modal-content {
+                background-color: none;
+                border: none;
+                margin: auto;
+                width: 50%;
+                @media (max-width:768px) { width: 100%; }
+              }
+          }
+            }
+        }
+        // ====================
+        .valentine-context{
+            padding: 30px 20px;
+            width: 50%;
+            .context-title{
+                margin: 0 0 30px 0; 
+                h2{
+                    // color: $stockborderColor;
+                    // font-size: 38px;
+                    // font-weight: 400;
+                    // line-height: 54.986px;
+                    @include fonts ($color: $stockborderColor,$f-size:$h2Size, $f-weight: $fw_400, $l-heit: $h2_lineheight,);
+                    margin-bottom: 19px;
+                    span{
+                        color: $shopnumberBgColor;
+                    }
+                }
+                p{
+                    // color: $secondaryColor;
+                    // font-size: 17px;
+                    // font-weight: 400;
+                    // line-height: 29px;
+                    @include fonts ($color: $secondaryColor,$f-size:$secondarySize, $f-weight: $fw_400, $l-heit: $lh_29);
+                    word-break: break-all;
+                }
+            }
+            .context-list{
+    
+                // usullar coxdur/ sadece olaraq ferqlilerin yoxlamaq isteyirem. 
+    
+    
+            //    list-style-image: url('https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h1-custom-icon.png');
+               li{
+                position: relative;
+                font-family: 'Lora', serif;
+                // color: $secondaryColor;
+                // font-size: 17px;
+                // font-weight: 400;
+                // line-height: 27.2px;
+                padding: 10px 0;
+                @include fonts ($color: $secondaryColor,$f-size:$secondarySize, $f-weight: $fw_400, $l-heit: $lh_27,);
+                padding-left: 13px;
+                &::before{
+                    content: url("https://fiorello.qodeinteractive.com/wp-content/uploads/2018/04/h1-custom-icon.png");
+                    position: absolute;
+                    width: 19px;
+                    height: 18px;
+                    top: 27%;
+                    left:  -5%;
+                }
+               }
+            }
+        }
+        @media (max-width:1025px) {
+            @include flex-all($f-d:column);
+            .valentine-cover{
+                width: 100%;
+            }
+            .valentine-context{
+                width: 60%;
+                .context-title{
+                    p{
+                        word-break: break-all;
+                    }
+                }
+            }
+        }
+        @media (max-width:800px) {
+            .valentine-cover{
+                a{
+                    width: auto;
+                }
+            }
+            .valentine-context{
+                width: 80%;
+            }
+        }
+    }
+}
+
+
+// valentine surprise ends
+
+
+#experts{
+    margin-top: 138px;
+    .experts-title{
+        width: 33.333%;
+        margin: 0 auto;
+        text-align: center;
+        h2{
+            // color: $stockborderColor;
+            // font-size: 38px;
+            // font-weight: 400;
+            // line-height: 54.986px;
+            // text-transform: capitalize;
+            @include fonts ($color: $stockborderColor,$f-size:$h2Size, $f-weight: $fw_400, $l-heit: $h2_lineheight,$t-t:capitalize,);
+            margin-bottom: 20px;
+        }
+        p{
+            // color: $secondaryColor;
+            // font-size: 17px;
+            // font-weight: 400;
+            // line-height: 29px;
+            @include fonts ($color: $secondaryColor,$f-size:$secondarySize, $f-weight: $fw_400, $l-heit: $lh_29,);
+        }
+    }
+    .experts-cards{
+        margin-top: 60px;
+        @include flex-all ($f-j:space-between, $f-w:wrap, $f-a:center);
+        .expert-card{
+            width: 25%;
+            margin: 20px 0;
+            padding: 0 41px;
+            overflow: hidden;
+            .expert-card-image{
+                margin: 0 auto;
+                // width: 222px;
+                // height: 222px;
+                // overflow: hidden;
+                // img{
+                //     @include img-size($obj:cover);
+                //     clip-path: circle(50% at 50% 50%);
+                // }
+                @extend %circle-img-large;
+            }
+            .expert-card-title{
+                margin-top: 18px;
+                text-align: center;
+                h6{
+                    font-family: 'Montserrat', sans-serif;
+                    // color: $primaryColor;
+                    // font-size: $primarySize;
+                    // font-weight: 500;
+                    // line-height: 24px;
+                    // letter-spacing: 1.2px;
+                    // text-transform: uppercase;
+                    @include fonts ($color: $primaryColor,$f-size:$primarySize, $f-weight: $fw_500, $l-heit: $lh_24,$t-t:uppercase,$l-spacing: $ls_normal,);
+                }
+                span{
+                    // color: $cardPriceColor;
+                    // font-size: $primarySize;
+                    // font-weight: 400;
+                    // line-height: 24px;
+                    @include fonts ($color: $cardPriceColor,$f-size:$primarySize, $f-weight: $fw_400, $l-heit: $lh_24,);
+                    margin: 2px 0;
+                }
+            }
+        }
+    }
+    @media (max-width:1200px){
+        .experts-title{
+            width: 50%;
+        }
+        .experts-cards{
+            .expert-card{
+                width: 50%;
+            }
+        }
+    }
+    @media (max-width:768px){
+        .experts-title{
+            width: 80%;
+        }
+        .experts-cards{
+            .expert-card{
+                width: 100%;
+            }
+        }
+    }
+}
+
+// ============ experts end ==========
+
+
+#bunch{
+    margin-top: 148px;
+    padding: 183px 0;
+    background: fixed center;
+    .bunch-inner{
+        @include flex-all ($f-j:center,$f-a:center, $f-d:column);
+        
+        h3{
+            // color: $whiteColor;
+            // text-align: center;
+            // font-size: 30px;
+            // font-weight: 400;
+            // line-height: 42px;
+            @include fonts ($color: $whiteColor, 
+            $t-align: center, $f-size:$fsize_30, $f-weight: $fw_400, $l-heit: $lh_42,);
+        }
+        .bunch-form{
+            width: 50%;
+            height: 91px;
+            margin: 30px 0;
+            @media (max-width:768px) { width: 100%; };
+            form{
+                padding: 0 20px;
+                @include flex-all($f-a:center, $f-j:center);
+                padding-bottom: 15px;
+                
+                input[type="mail"]{
+                    @include inputs_types($w:70%);
+                    // padding: 22px 19px;
+                    // border: 1px solid #E8E8E8;
+                    // background: #FFF;
+                    // width: 70%;
+                    // line-height: 20px;
+                    // &::placeholder{
+                    //     color: $inputPlcHolder;
+                    //     font-size: $primarySize;
+                    //     text-transform: capitalize;
+                    
+                }
+                input[type="submit"]{
+                    @include input_submit($w:30%);
+                    padding: 24px 0;
+                    // width:30%;
+                    // color: $whiteColor;
+                    // background-color: $shopnumberBgColor;
+                    // border: none;
+                    // font-size: $primarySize;
+                    // text-transform: uppercase;
+                }
+            }
+            
+        }
+    }
+}
+
+// ============== bunch end========
+
+#blog{
+    padding: 98px 0;
+    background-color: $blogbgcolor;
+    .blog-title{
+        @include flex-all ($f-a:center,$f-j:center,$f-d:column);
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        h2{
+            // color: $stockborderColor;
+            // font-size: 38px;
+            // font-weight: 400;
+            // line-height: 54.986px;
+            @include fonts ($color: $stockborderColor,$f-size:$h2Size, $f-weight: $fw_400, $l-heit: $h2_lineheight);
+            margin-bottom: 20px;
+        }
+        p{
+            // color: $secondaryColor;
+            // font-size: 17px;
+            // font-weight: 400;
+            // line-height: 29px;
+            @include fonts ($color: $secondaryColor,$f-size:$secondarySize, $f-weight: $fw_400, $l-heit: $lh_29,);
+        }
+    }
+    .blog-cards{
+        margin-top: 68px;
+        @include flex-all ($f-j:space-between,$f-w:wrap);
+        .blog-card{
+            width: 33.333%;
+            padding: 0 10px;
+            margin: 10px 0;
+            .blog-card-img{
+                position: relative;
+                height: 268.14px;
+                overflow: hidden;
+                a{
+                    img{
+                        @include img-size($obj:cover);
+                        transition: .3s ease-out;
+                        &:hover{
+                            transform: scale(1.05);
+                        }
+                    }
+                    .blog-card-date{
+                        @include stock-info($font-color:$blackColor,$bg-color:$whiteColor,$brd-corner:transparent);
+                        font-family: 'Montserrat', sans-serif;
+                        // font-size: 10px;
+                        // font-weight: 500;
+                        // line-height: 10px;
+                        // letter-spacing: 1.5px;
+                        @include fonts ($f-size:$fsize_10, $f-weight: $fw_500, $l-heit: $lh_10,$l-spacing: $ls_large,);
+                        padding: 10px 16px;
+
+                    }
+                }
+            }
+            .blog-card-context{
+                padding: 29px 0;
+                text-align: center;
+                h5{
+                    a{
+                        // color: $stockborderColor;
+                        // font-size: 22px;
+                        // font-weight: 400;
+                        // line-height: 30px;
+                        // text-transform: capitalize;
+                        @include fonts ($color: $stockborderColor,$f-size:$fsize_22, $f-weight: $fw_400, $l-heit: $lh_30,$t-t: capitalize,);
+                    }
+                }
+                p{
+                    // color: $secondaryColor;
+                    // font-size: 15px;
+                    // font-weight: 400;
+                    // line-height: 24px;
+                    @include fonts ($color: $secondaryColor,$f-size:$fsize_15, $f-weight: $fw_400, $l-heit: $lh_24,);
+                    padding: 0 19px 12px;
+                }
+            }
+        }
+    }
+    @media(max-width: 768px){
+        .blog-cards{
+            .blog-card{
+                width: 50%;
+            }
+        }
+    }
+
+    @media(max-width: 600px){
+        .blog-title{
+            width: 90%;
+            
+        }
+        .blog-cards{
+            .blog-card{
+                width: 100%;
+                .blog-card-img{
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+
+// blog end ===========================
+

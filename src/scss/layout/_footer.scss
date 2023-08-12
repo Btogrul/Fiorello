@@ -1,0 +1,61 @@
+footer{
+    background-color: $bgColor;
+    padding: 73px 66px 0;
+        h6{
+            @include fonts($f-size: $primarySize,$f-weight:$fw_500,$t-t: uppercase);
+            padding: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        ul{
+            padding-left: 0;
+            padding-bottom: 20px;
+            li{
+                padding: 0 0 3px;
+                a{
+                    @include fonts($color:$footlinkColor,$f-size:$primarySize,$l-heit:$lh_24, $t-t: capitalize);
+                    transition: .2s ease-in-out;
+                    &:hover{ color: $shopnumberBgColor;}
+                }
+            }
+        }
+        .contact-bottom{
+            position: relative;
+            padding: 8px 0 17px;
+            @include flex-all($f-j:space-between,$f-a:center);
+            @media (max-width:992px) {  @include flex-all($f-d:column); }
+            .text-widget{
+                @include fonts($color: $bottomColor,$f-size:$primarySize,$l-heit:$lh_24);
+                a{
+                    @include fonts($color: $secondaryColor);
+                    transition: .2s ease-in-out;
+                    &:hover{ color: $shopnumberBgColor; }
+                }
+            }
+            .sosials{
+                a{
+                    @include fonts($color: $bottomColor,$f-size:$fsize_10,$l-heit:$lh_24,$f-weight: $fw_300);
+                    padding: 0 10px;
+                    transition: .2s ease-in-out;
+                    &:hover{ color: $shopnumberBgColor; }
+                }
+            }
+            .cards{
+                padding: 17px 0;
+                .card-inner{
+                    width: 179px;
+                    height: 21px;
+                    a{
+                        img{
+                            @include img-size($obj:cover);
+                        }
+                    }
+                }
+            }
+            &::before{
+                @include before-underline($w:100%);
+                top:0;
+                background-color: $footerlineColor;
+            }
+        }
+    
+}

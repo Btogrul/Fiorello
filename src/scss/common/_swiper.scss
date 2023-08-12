@@ -1,0 +1,204 @@
+#flowers-swiper{
+   position: relative;
+   overflow: hidden;
+    swiper-slide {
+        text-align: center;
+        font-size: $fsize_18;
+        background: $whiteColor;
+        @include flex-all($f-j:center,$f-a:center);
+        height: 614px;
+        width: 2094px;
+        img {
+            display: block;
+            // width: 100%;
+            // height: 100%;
+            // object-fit: cover;
+            @include img-size($obj:cover);
+            animation: img-scale 30s infinite ease-out;
+        }
+    }
+    // ====================================
+    .swiper-context{
+        position: absolute;
+        top: 10%;
+        left: 18%;
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 99;
+        padding:40px 20px;
+        background-color: transparent;
+        .swiper-context-inner {
+                h2 {
+                    // color: $blackColor;
+                    // font-size: 60px;
+                    // font-weight: 400;
+                    // line-height: 70px;
+                    @include fonts($f-size: $fsize_60, $f-weight: $fw_400, $l-heit:$lh_70, $color:$blackColor);
+        
+                    span {
+                        color: $swiperspanColor;
+                    }
+                }
+                p {
+                    // color: #6D6A6A;
+                    // font-size: 17px;
+                    // font-weight: 400;
+                    // line-height: 29px;
+                    padding: 28px 0;
+                    @include fonts($f-size: $secondarySize, $f-weight: $fw_400, $l-heit:$lh_29, $color:$secondaryColor);
+                    word-break: break-all;
+                }
+                .swiper-context-img{
+                    // width: 197px;
+                    // height: 56px;
+                    // img{
+                    //     @include img-size($obj:cover);
+                    // }
+                    @extend %sign-img-default;
+                }
+        
+        }
+        @media (max-width:1300px){
+            left: 5%;
+            width: 40%;
+            .swiper-context-inner{
+                h2{
+                    font-size: 41px;
+                    line-height: 51px;
+                }
+            }
+        } 
+        @media (max-width:1250px) {
+            top: 10%;
+            left: 5%;
+
+        }
+        @media (max-width:975px) {
+            top: 5%;
+            left: 5%;
+            width: 50%;
+            // .swiper-context-inner{
+            //     h2{
+            //         font-size: 41px;
+            //         line-height: 51px;
+            //     }
+            // }
+        }
+        @media (max-width:600px) {
+            top: 14%;
+            left: 3%;
+            width: 70%;
+            .swiper-context-inner{
+                h2{
+                    font-size: 30px;
+                }
+            }
+            
+        }
+        @media (max-width:479px) {
+
+            .swiper-context-inner{
+                p{
+                    display: none;
+                }
+                .swiper-context-img{
+                    margin-top: 20px;
+                }
+            }
+        }
+        
+    }
+}
+
+
+@keyframes img-scale{
+    0% {transform: scale(1); 
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: 0px;
+        width: 100%;}
+    50% {
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: 0px;
+        filter: none;
+        transform-origin: 0% 0%;
+        transform: scale(1.1, 1.1);
+        width: 100%;}
+    0% {transform: scale(1);
+        position: absolute;
+        display: block;
+        top: 0px;
+        left: 0px;
+        filter: none;
+        width: 100%;
+        transform-origin: 0% 0%;}
+}
+
+
+// =========================
+
+
+// comments start 
+
+#comments{
+    padding: 84px 0 112px;
+    swiper-container{
+        .comments-swiper{
+            .comment{
+                width: 50%;
+                margin: 0 auto;
+                padding: 35px 0;
+                @include flex-all($f-j:center, $f-a:center,$f-d:column);
+                .comment-from{
+                    // width: 87px;
+                    // height: 87px;
+                    // overflow: hidden;
+                    // img{
+                    //     @include img-size($obj:cover);
+                    //     clip-path: circle(50% at 50% 50%);
+                    // }
+                    @extend %circle-img-small;
+                }
+                .comment-inner{
+                    margin: 30px 0 0;
+                    text-align: center;
+                    p{
+                        color: $commentsColor;
+                        font-style: italic;
+                        // font-size: 24px;
+                        // font-weight: 400;
+                        // line-height: 36px;
+                        @include fonts($f-size: $fsize_24,$f-weight: $fw_400, $l-heit:$lh_36);
+                    }
+                    .comment-owner{
+                        margin-top: 38px;
+                        h6{
+                            font-family: Montserrat;
+                            // text-transform: uppercase;
+                            // color: #1B1B1B;
+                            // font-size: $primarySize;
+                            // font-weight: 500;
+                            // line-height: 24px;
+                            // letter-spacing: 1.2px;
+                            @include fonts($color:$primaryColor,$f-size: $primarySize, $f-weight: $fw_500, $l-heit:$lh_24, $l-spacing:$ls_normal,$t-t: uppercase);
+                        }
+                        span{
+                            // color: $cardPriceColor;
+                            // font-size: $primarySize;
+                            // font-weight: 500;
+                            // line-height: 24px;
+                            @include fonts($color:$cardPriceColor,$f-size: $primarySize, $f-weight: $fw_500, $l-heit:$lh_24,);
+                        }
+                    }
+                }
+                @media (max-width: 768px){
+                    width: 80%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,65 @@
+@mixin flex-all ($f-d:null, $f-w:null, $f-j:null, $f-a:null){
+    display: flex;
+    flex-direction: $f-d;
+    flex-wrap: $f-w;
+    justify-content: $f-j;
+    align-items: $f-a;
+}
+@mixin img-size($obj:null){
+    @extend %f-size;
+    object-fit: $obj;
+}
+
+@mixin before-underline($w:null){
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: $w;
+    height: 1px;
+    background-color: $primaryColor;
+    transition: width .2s ease-in-out;
+}
+
+
+@mixin fonts($color:null,$f-size:null,$f-weight:null,$l-heit:null,$l-spacing:null,$t-align:null,$t-d:null,$t-t:null)
+{
+    color: $color;
+    font-size: $f-size;
+    font-weight: $f-weight;
+    line-height: $l-heit;
+    letter-spacing: $l-spacing;
+    text-align: $t-align;
+    text-decoration: $t-d;
+    text-transform: $t-t;
+}
+
+
+@mixin stock-info($font-color:null,$bg-color:null,$brd-corner:null){
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    color: $font-color;
+    background-color: $bg-color;
+    display: inline-flex;
+    padding: 5px 13.97px 6px 13px;
+    border-color: transparent $brd-corner transparent transparent;
+    text-align: center;
+    font-family: Playfair Display;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+
+@mixin inputs_types($w:null){
+    @extend %inputs;
+    width: $w;
+}
+
+@mixin input_submit($w:null){
+    @extend %input_submit;
+    width: $w;
+}

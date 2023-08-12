@@ -1,0 +1,61 @@
+#about-us{
+    padding: 111px 0 ;
+    background-position: center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    .about-title{
+        text-align: center;
+        width: 33.3333%;
+        margin: auto;
+        
+        h1{
+            @include fonts($color: $aboutUstitle, $f-size: $h1Size, $f-weight: $fw_400,$l-heit: $h1_lineheight,$t-t: capitalize);
+        }
+        span{
+            margin-top: 22px;
+            @include fonts ($color:$secondaryColor,$f-size: $secondarySize,$f-weight: $fw_400, $l-heit: $lh_24);
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+        @media (max-width: 768px){
+            width: 70%;
+        }
+    }
+}
+
+// about us end ===========
+#valentine-surprise{
+    .valentine-content{
+        .valentine-context{
+            .valentine-context-img{
+                margin: 42px 0;
+                width: 197px;
+                height: 56px;
+                img{
+                    @include img-size($obj:cover);
+                }
+            }
+        }
+        #context-change-parametrs{
+            padding: 27px 65px 0 0;
+        }
+
+    }
+    &.dfrnt{
+        margin-bottom: 119px;
+        padding-bottom: 0;
+        background-color: $whiteColor;
+    }
+}
+
+// valentine surprise section end 
+#experts{
+    &.dfrnt{
+        padding-top: 97px;
+        background-color: $valentinebgColorUp1;
+        padding-bottom: 108px;
+    }
+}
+
+
+// about us end 
